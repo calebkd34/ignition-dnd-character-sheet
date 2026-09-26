@@ -1,0 +1,79 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": "Poisoned",
+    "id": "poisoned"
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 34,
+      "width": 174
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 10
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "paddingLeft": 10
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "basis": "54px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "expression": "property(\"session.custom.when.\" +{view.params.id} + \"Active\")"
+              },
+              "type": "expr"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "    self.session.custom.when[\"{}Active\".format(self.view.params.id)] \u003d self.props.selected\n    self.session.custom.when[\"{}Inactive\".format(self.view.params.id)] \u003d not self.props.selected\n    if previousValue.value !\u003d currentValue.value:\n        system.perspective.sendMessage(\"refresh\", \"{}Active\".format(self.view.params.id), \"session\")\n        system.perspective.sendMessage(\"refresh\", \"{}Inactive\".format(self.view.params.id), \"session\")\n        # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+            }
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

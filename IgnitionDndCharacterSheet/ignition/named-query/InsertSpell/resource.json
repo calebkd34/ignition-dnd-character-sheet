@@ -1,0 +1,100 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Spells",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "b21a2e8a52048a0db5050646178a00f3430ed2cb5a7021102751c1c302eafd77",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "calebkd",
+      "timestamp": "2026-05-22T19:21:34Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "name",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "level",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "school",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "spell_lists",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "casting_time",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "duration",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "range",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "area_of_effect",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "components",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "save",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "short_description",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "long_description",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "source",
+        "sqlType": 7
+      }
+    ]
+  }
+}

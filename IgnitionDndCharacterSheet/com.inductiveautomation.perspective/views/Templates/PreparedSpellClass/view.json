@@ -1,0 +1,183 @@
+{
+  "custom": {},
+  "params": {
+    "spellList": "Wizard"
+  },
+  "propConfig": {
+    "params.spellList": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 593,
+      "width": 676
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CantripsCaption"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "custom.count": {
+            "binding": {
+              "config": {
+                "path": "../Cantrips.props.instances"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn sum([1 for spell in value if self.view.params.spellList in spell[\"prepared\"]])",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "custom.max": {
+            "binding": {
+              "config": {
+                "path": "session.custom.data.spellStuff.preparedCount"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value[self.view.params.spellList][\"cantrips\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "concat(\"Cantrips:  \",{this.custom.count},\"/\",{this.custom.max},\" prepared\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Cantrips"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "session.custom.data.spells"
+              },
+              "transforms": [
+                {
+                  "code": "\n\tcantrips \u003d []\n\tfor spellId, spellData in value.items():\n\t\tif self.view.params.spellList in spellData[\"known\"] and spellData[\"level\"] \u003d\u003d 0:\n\t\t\tcantrips.append({\n\t\t\t\t\"id\":spellId,\n\t\t\t\t\"displayName\":spellData[\"displayName\"],\n\t\t\t\t\"level\":0,\n\t\t\t\t\"prepared\":spellData[\"prepared\"],\n\t\t\t\t\"known\":self.view.params.spellList,\n\t\t\t\t\"description\":spellData[\"description\"]\n\t\t\t})\n\t\n\treturn sorted(cantrips,key \u003d lambda x: x[\"displayName\"])",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Templates/PrepareSpell",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "LeveledCaption"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "custom.count": {
+            "binding": {
+              "config": {
+                "path": "../Leveled.props.instances"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn sum([1 for spell in value if self.view.params.spellList in spell[\"prepared\"]])",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "custom.max": {
+            "binding": {
+              "config": {
+                "path": "session.custom.data.spellStuff.preparedCount"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value[self.view.params.spellList][\"leveled\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "concat(\"Leveled:  \",{this.custom.count},\"/\",{this.custom.max},\" prepared\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Leveled"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "session.custom.data.spells"
+              },
+              "transforms": [
+                {
+                  "code": "\n\tcantrips \u003d []\n\tfor spellId, spellData in value.items():\n\t\tif self.view.params.spellList in spellData[\"known\"] and spellData[\"level\"] \u003e 0:\n\t\t\tcantrips.append({\n\t\t\t\t\"id\":spellId,\n\t\t\t\t\"displayName\":spellData[\"displayName\"],\n\t\t\t\t\"level\":spellData[\"level\"],\n\t\t\t\t\"time\":spellData[\"time\"],\n\t\t\t\t\"prepared\":spellData[\"prepared\"],\n\t\t\t\t\"known\":self.view.params.spellList,\n\t\t\t\t\"description\":spellData[\"description\"]\n\t\t\t})\n\t\n\treturn sorted(cantrips, key \u003d lambda x: (x[\"level\"], x[\"displayName\"]))",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Templates/PrepareSpell",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

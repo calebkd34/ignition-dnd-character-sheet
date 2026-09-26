@@ -1,0 +1,35 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 453,
+      "width": 676
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.tabs": {
+        "binding": {
+          "config": {
+            "path": "session.custom.data.spellStuff.preparedCount"
+          },
+          "transforms": [
+            {
+              "code": "\treturn value.keys()",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "currentTabIndex": 1
+    },
+    "type": "ia.container.tab"
+  }
+}

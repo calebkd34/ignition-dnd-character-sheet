@@ -1,0 +1,255 @@
+{
+  "custom": {
+    "advantagePrecedents": [],
+    "advantageValue": 0,
+    "checkPrecedents": [],
+    "checkValue": 99
+  },
+  "params": {
+    "advantage": [],
+    "check": [
+      99
+    ],
+    "displayName": "Acrobatics",
+    "id": "acrobatics",
+    "notes": ""
+  },
+  "propConfig": {
+    "custom.advantagePrecedents": {
+      "binding": {
+        "config": {
+          "path": "view.params.advantage"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.advantageValue": {
+      "binding": {
+        "config": {
+          "path": "view.params.advantage"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif \"{}CheckAdvantage\".format(self.view.params.id) not in self.session.custom.what.keys():\n\t\tself.session.custom.what[\"{}CheckAdvantage\".format(self.view.params.id)] \u003d currentValue.value\n  \tif self.session.custom.what[\"{}CheckAdvantage\".format(self.view.params.id)] !\u003d currentValue.value:\n  \t\tself.session.custom.what[\"{}CheckAdvantage\".format(self.view.params.id)] \u003d currentValue.value\n        system.perspective.sendMessage(\"refresh\", \"{}CheckAdvantage\".format(self.view.params.id), \"session\")\n        # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+      },
+      "persistent": true
+    },
+    "custom.checkPrecedents": {
+      "binding": {
+        "config": {
+          "path": "view.params.check"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.checkValue": {
+      "binding": {
+        "config": {
+          "path": "view.params.check"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\t\tif \"{}Check\".format(self.view.params.id) not in self.session.custom.what.keys():\n\t\t\tself.session.custom.what[\"{}Check\".format(self.view.params.id)] \u003d currentValue.value\n\t\tif self.session.custom.what[\"{}Check\".format(self.view.params.id)] !\u003d currentValue.value:\n\t\t\tself.session.custom.what[\"{}Check\".format(self.view.params.id)] \u003d currentValue.value\n\t\t\tsystem.perspective.sendMessage(\"refresh\", \"{}Check\".format(self.view.params.id), \"session\")\n            # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+      },
+      "persistent": true
+    },
+    "params.advantage": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.check": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.notes": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 24,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.advantageValue"
+              },
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "range",
+                  "mappings": [
+                    {
+                      "input": {
+                        "max": 2,
+                        "min": 1
+                      },
+                      "output": "#00AC00"
+                    },
+                    {
+                      "input": {
+                        "max": -1,
+                        "min": -2
+                      },
+                      "output": "#D90000"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.custom.checkPrecedents"
+              },
+              "transforms": [
+                {
+                  "code": "\tlevel \u003d sum([1 for i in value if i \u003d\u003d \"proficiencyBonus\"])\n\t\n\tif level \u003d\u003d 0:\n\t\treturn \"material/radio_button_unchecked\"\n\tif level \u003d\u003d 1:\n\t\treturn \"material/radio_button_checked\"\n\telse:\n\t\treturn \"material/offline_bolt\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.checkValue"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value}\u003c0,{value},\"+\" + {value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "50px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#000000",
+            "fontSize": 12
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "path": "view.params.notes"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh",
+          "pageScope": false,
+          "script": "    if payload in self.view.custom.checkPrecedents:\n        self.view.refreshBinding(\"custom.checkValue\")\n        # system.perspective.print(\"{}Check heard {}\".format(self.view.params.id, payload))\n    if payload in self.view.custom.advantagePrecedents:\n        self.view.refreshBinding(\"custom.advantageValue\")\n        # system.perspective.print(\"{}CheckAdvantage heard {}\".format(self.view.params.id, payload))",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

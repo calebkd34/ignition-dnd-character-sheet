@@ -1,0 +1,139 @@
+{
+  "custom": {},
+  "params": {
+    "description": "Create minor magical effects: sensory, light/snuff, clean, flavor, or trinket\"",
+    "displayName": "Prestidigitation",
+    "id": "prestidigitationSpell",
+    "known": "Wizard",
+    "level": 0,
+    "prepared": []
+  },
+  "propConfig": {
+    "params.description": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.known": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.level": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.prepared": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 42,
+      "width": 583
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Prepared"
+        },
+        "position": {
+          "basis": "170px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "expression": "indexof({view.params.prepared},{view.params.known})\u003e-1"
+              },
+              "type": "expr"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\t\n\tif previousValue.value !\u003d currentValue.value:\n\t\tif self.view.params.known in self.session.custom.data.spells[self.view.params.id][\"prepared\"]:\n\t\t\tself.session.custom.data.spells[self.view.params.id][\"prepared\"].remove(self.view.params.known)\n\t\tif currentValue.value:\n\t\t\tself.session.custom.data.spells[self.view.params.id][\"prepared\"].append(self.view.params.known)"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontStyle": "italic",
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "basis": "50px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.description"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": 14,
+            "wordWrap": "break-word"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Level"
+        },
+        "position": {
+          "basis": "20px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.level"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": 13,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

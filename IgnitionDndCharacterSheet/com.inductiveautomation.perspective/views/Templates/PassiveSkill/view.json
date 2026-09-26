@@ -1,0 +1,145 @@
+{
+  "custom": {
+    "precedents": [],
+    "value": 99
+  },
+  "params": {
+    "bucket": [
+      99
+    ],
+    "displayName": "",
+    "id": "passivePerception",
+    "notes": ""
+  },
+  "propConfig": {
+    "custom.precedents": {
+      "binding": {
+        "config": {
+          "path": "view.params.bucket"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.value": {
+      "binding": {
+        "config": {
+          "path": "view.params.bucket"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "        if self.session.custom.what[self.view.params.id] !\u003d currentValue.value:\n            self.session.custom.what[self.view.params.id] \u003d currentValue.value\n            system.perspective.sendMessage(\"refresh\", self.view.params.id, \"session\")\n            # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+      },
+      "persistent": true
+    },
+    "params.bucket": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.notes": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 24,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "50px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "overflow": "hidden"
+          },
+          "textStyle": {
+            "fontSize": 11
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "refresh",
+          "pageScope": false,
+          "script": "    if payload in self.view.custom.precedents:\n        self.view.refreshBinding(\"custom.value\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

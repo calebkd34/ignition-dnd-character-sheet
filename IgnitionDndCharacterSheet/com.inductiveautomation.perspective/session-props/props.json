@@ -1,0 +1,2309 @@
+{
+  "custom": {
+    "data": {
+      "abilityScores": [
+        {
+          "displayName": "Strength",
+          "id": "strength",
+          "notes": "",
+          "score": [
+            10
+          ]
+        },
+        {
+          "displayName": "Dexterity",
+          "id": "dexterity",
+          "notes": "",
+          "score": [
+            18
+          ]
+        },
+        {
+          "displayName": "Constitution",
+          "id": "constitution",
+          "notes": "",
+          "score": [
+            14
+          ]
+        },
+        {
+          "displayName": "Intelligence",
+          "id": "intelligence",
+          "notes": "",
+          "score": [
+            20
+          ]
+        },
+        {
+          "displayName": "Wisdom",
+          "id": "wisdom",
+          "notes": "",
+          "score": [
+            11
+          ]
+        },
+        {
+          "displayName": "Charisma",
+          "id": "charisma",
+          "notes": "",
+          "score": [
+            12
+          ]
+        }
+      ],
+      "actions": [],
+      "attacks": [
+        {
+          "AttackAdvantage": {
+            "bucket": []
+          },
+          "AttackModifier": {
+            "bucket": []
+          },
+          "CritDamage": {
+            "bucket": []
+          },
+          "Damage": {
+            "bucket": []
+          },
+          "abilityScore": {
+            "bucket": []
+          },
+          "id": "twoHandedLongsword",
+          "name": "Longsword"
+        }
+      ],
+      "combat": {
+        "damageImmunities": [],
+        "damageResistances": [],
+        "damageVulnerabilities": []
+      },
+      "conditions": [
+        {
+          "displayName": "Blinded",
+          "id": "blinded",
+          "notes": ""
+        },
+        {
+          "displayName": "Bloodied",
+          "id": "bloodied",
+          "notes": ""
+        },
+        {
+          "displayName": "Charmed",
+          "id": "charmed",
+          "notes": ""
+        },
+        {
+          "displayName": "Deafened",
+          "id": "deafened",
+          "notes": ""
+        },
+        {
+          "displayName": "Frightened",
+          "id": "frightened",
+          "notes": ""
+        },
+        {
+          "displayName": "Grappled",
+          "id": "grappled",
+          "notes": ""
+        },
+        {
+          "displayName": "Half Cover",
+          "id": "halfCover",
+          "notes": ""
+        },
+        {
+          "displayName": "Incapacitated",
+          "id": "incapacitated",
+          "notes": ""
+        },
+        {
+          "displayName": "Is My Turn",
+          "id": "isMyTurn",
+          "notes": ""
+        },
+        {
+          "displayName": "Invisible",
+          "id": "invisible",
+          "notes": ""
+        },
+        {
+          "displayName": "Paralyzed",
+          "id": "paralyzed",
+          "notes": ""
+        },
+        {
+          "displayName": "Petrified",
+          "id": "petrified",
+          "notes": ""
+        },
+        {
+          "displayName": "Poisoned",
+          "id": "poisoned",
+          "notes": ""
+        },
+        {
+          "displayName": "Prone",
+          "id": "prone",
+          "notes": ""
+        },
+        {
+          "displayName": "Restrained",
+          "id": "restrained",
+          "notes": ""
+        },
+        {
+          "displayName": "Stunned",
+          "id": "stunned",
+          "notes": ""
+        },
+        {
+          "displayName": "Three Quarter Cover",
+          "id": "threeQuartersCover",
+          "notes": ""
+        },
+        {
+          "displayName": "Unconsious",
+          "id": "unconsious",
+          "notes": ""
+        }
+      ],
+      "instantEffects": [
+        {
+          "actionType": "Other",
+          "description": "do stuff",
+          "id": "arcaneRecovery",
+          "options": [
+            {
+              "label": "recover Bladesong",
+              "value": {
+                "commands": [
+                  {
+                    "how": "plus",
+                    "what": [
+                      9
+                    ],
+                    "where": "sorceryPoints"
+                  }
+                ],
+                "cost": [
+                  {
+                    "what": [
+                      1
+                    ],
+                    "where": "ninthLevelSpellSlots"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "instants": {
+        "currentHP": 46,
+        "tempHP": 0
+      },
+      "labeled": {
+        "armorClass": [
+          10,
+          1,
+          "dexterityModifier",
+          {
+            "what": 3,
+            "when": "mageArmorSpellActive"
+          },
+          {
+            "what": "intelligenceModifier",
+            "when": "bladesongActive"
+          },
+          {
+            "what": 5,
+            "when": "shieldSpellActive"
+          },
+          {
+            "what": 2,
+            "when": "shieldOfFaithSpellActive"
+          },
+          {
+            "what": 2,
+            "when": "hasteSpellActive"
+          }
+        ],
+        "burrowingSpeed": [
+          0,
+          "exhaustionSpeedPenalty"
+        ],
+        "burrowingSpeedMultiplier": [
+          1
+        ],
+        "climbingSpeed": [
+          0,
+          "exhaustionSpeedPenalty"
+        ],
+        "climbingSpeedMultiplier": [
+          1
+        ],
+        "exhaustionLevel": [],
+        "exhaustionPenalty": [],
+        "exhaustionSpeedPenalty": [],
+        "flyingSpeed": [
+          0,
+          "exhaustionSpeedPenalty"
+        ],
+        "flyingSpeedMultiplier": [
+          1
+        ],
+        "initiativeAdvantage": [
+          0
+        ],
+        "initiativeBonus": [
+          "dexterityModifier"
+        ],
+        "languages": [
+          "Common"
+        ],
+        "level": [
+          0
+        ],
+        "maxHP": [
+          77
+        ],
+        "proficiencyBonus": [
+          4
+        ],
+        "size": [
+          3
+        ],
+        "swimmingSpeed": [
+          0,
+          "exhaustionSpeedPenalty"
+        ],
+        "swimmingSpeedMultiplier": [
+          1
+        ],
+        "walkingSpeed": [
+          30,
+          "exhaustionSpeedPenalty",
+          {
+            "what": 10,
+            "when": "bladesongActive"
+          }
+        ],
+        "walkingSpeedMultiplier": [
+          1,
+          {
+            "what": 2,
+            "when": "hasteSpellActive"
+          }
+        ]
+      },
+      "lastingEffects": [
+        {
+          "displayName": "Bladesong",
+          "id": "bladesong"
+        },
+        {
+          "displayName": "Disguise Self",
+          "id": "disguiseSelfSpell"
+        },
+        {
+          "displayName": "Haste",
+          "id": "hasteSpell"
+        },
+        {
+          "displayName": "Mage Armor",
+          "id": "mageArmorSpell"
+        },
+        {
+          "displayName": "Shield Spell",
+          "id": "shieldSpell"
+        },
+        {
+          "displayName": "Shield of Faith",
+          "id": "shieldOfFaithSpell"
+        }
+      ],
+      "pactMagicSlots": {
+        "fifthLevel": {
+          "current": 0,
+          "maxBucket": []
+        },
+        "firstLevel": {
+          "current": 0,
+          "maxBucket": []
+        },
+        "fourthLevel": {
+          "current": 0,
+          "maxBucket": []
+        },
+        "secondLevel": {
+          "current": 0,
+          "maxBucket": []
+        },
+        "thirdLevel": {
+          "current": 0,
+          "maxBucket": []
+        }
+      },
+      "passiveSkills": [
+        {
+          "bucket": [
+            10,
+            "perceptionCheck"
+          ],
+          "displayName": "Passive Perception",
+          "id": "passivePerception",
+          "notes": ""
+        },
+        {
+          "bucket": [
+            10,
+            "investigationCheck"
+          ],
+          "displayName": "Passive Investigation",
+          "id": "passiveInvestigation",
+          "notes": ""
+        },
+        {
+          "bucket": [
+            10,
+            "insightCheck"
+          ],
+          "displayName": "Passive Insight",
+          "id": "passiveInsight",
+          "notes": ""
+        }
+      ],
+      "resources": [
+        {
+          "current": [
+            0
+          ],
+          "displayName": "Arcane Recovery",
+          "id": "arcaneRecoveryUses",
+          "longRest": [
+            1
+          ],
+          "maxBucket": [
+            1
+          ],
+          "shortRest": []
+        },
+        {
+          "current": 4,
+          "displayName": "Bladesong",
+          "id": "bladesongUses",
+          "longRest": [
+            "intelligenceModifier"
+          ],
+          "maxBucket": [
+            "intelligenceModifier"
+          ],
+          "shortRest": []
+        }
+      ],
+      "saves": [
+        {
+          "advantage": [],
+          "check": [
+            "strengthModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Strength",
+          "id": "strength",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Dexterity",
+          "id": "dexterity",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "constitutionModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Constitution",
+          "id": "constitution",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Intelligence",
+          "id": "intelligence",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Wisdom",
+          "id": "wisdom",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Charisma",
+          "id": "charisma",
+          "notes": ""
+        }
+      ],
+      "skills": [
+        {
+          "advantage": [
+            {
+              "what": 1,
+              "when": "bladesongActive"
+            }
+          ],
+          "check": [
+            "dexterityModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Acrobatics",
+          "id": "acrobatics",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Animal Handling",
+          "id": "animalHandling",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Arcana",
+          "id": "arcana",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "strengthModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Athletics",
+          "id": "athletics",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Deception",
+          "id": "deception",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "History",
+          "id": "history",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Insight",
+          "id": "insight",
+          "notes": "+1d4"
+        },
+        {
+          "advantage": [],
+          "check": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Intimidation",
+          "id": "intimidation",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus",
+            "proficiencyBonus"
+          ],
+          "displayName": "Investigation",
+          "id": "investigation",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Medicine",
+          "id": "medicine",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Nature",
+          "id": "nature",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Perception",
+          "id": "perception",
+          "notes": "+1d4"
+        },
+        {
+          "advantage": [],
+          "check": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Performance",
+          "id": "performance",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Persuasion",
+          "id": "persuasion",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Religion",
+          "id": "religion",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Sleight of Hand",
+          "id": "sleightOfHand",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "dexterityModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Stealth",
+          "id": "stealth",
+          "notes": ""
+        },
+        {
+          "advantage": [],
+          "check": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Survival",
+          "id": "survival",
+          "notes": ""
+        }
+      ],
+      "spellSlots": {
+        "fifthLevel": {
+          "color": "#5FCEF3",
+          "current": 2,
+          "maxBucket": [
+            2
+          ]
+        },
+        "firstLevel": {
+          "color": "#5FCEF3",
+          "current": 4,
+          "maxBucket": [
+            4
+          ]
+        },
+        "fourthLevel": {
+          "color": "#5FCEF3",
+          "current": 3,
+          "maxBucket": [
+            3
+          ]
+        },
+        "secondLevel": {
+          "color": "#5FCEF3",
+          "current": 3,
+          "maxBucket": [
+            3
+          ]
+        },
+        "sixthLevel": {
+          "color": "#5FCEF3",
+          "current": 1,
+          "maxBucket": [
+            1
+          ]
+        },
+        "thirdLevel": {
+          "color": "#5FCEF3",
+          "current": 3,
+          "maxBucket": [
+            3
+          ]
+        }
+      },
+      "spellStuff": {
+        "concentrationCheck": [
+          "constitutionSave",
+          "exhaustionPenalty",
+          {}
+        ],
+        "concentrationCheckAdvantage": [
+          1
+        ],
+        "preparedCount": {
+          "Artificer": {
+            "cantrips": 2,
+            "leveled": 3
+          },
+          "Wizard": {
+            "cantrips": 5,
+            "leveled": 15
+          }
+        }
+      },
+      "spells": {
+        "absorbElementsSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Gain resistance to triggering damage type, add 1d6 to next melee attack",
+          "displayName": "Absorb Elements",
+          "duration": "1 round",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Reaction"
+        },
+        "acidSplashSpell": {
+          "area": "5 ft sphere",
+          "casting": "At Will",
+          "description": "Acidic bubble explodes dealing 1d6 acid damage",
+          "displayName": "Acid Splash",
+          "duration": "Instant",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "alarmSpell": {
+          "area": "20 ft cube",
+          "casting": "Cast",
+          "description": "Ward door/window/area, alerts when creature enters",
+          "displayName": "Alarm",
+          "duration": "8 hours",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "1 min [R]"
+        },
+        "bigbysHandSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Large spectral hand: clenched fist 5d8, forceful push, grapple 4d6, or half cover",
+          "displayName": "Bigby\u0027s Hand",
+          "duration": "1 min [C]",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 5,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "120 ft",
+          "time": "1 min [C]"
+        },
+        "bladeWardSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Attackers subtract 1d4 from attack rolls against you",
+          "displayName": "Blade Ward",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action"
+        },
+        "boomingBladeSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Melee attack with extra thunder damage if target moves",
+          "displayName": "Booming Blade",
+          "duration": "1 round",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "burningHandsSpell": {
+          "area": "15 ft cone",
+          "casting": "Cast",
+          "description": "Deal 3d6 fire damage or half on save, ignites objects",
+          "displayName": "Burning Hands",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "catapultSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Object flies 90 ft dealing 3d8 bludgeoning damage",
+          "displayName": "Catapult",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "chillTouchSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Melee spell attack deals 1d10 necrotic damage, prevents healing",
+          "displayName": "Chill Touch",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "chromaticOrbSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Ranged spell attack deals 3d8 chosen damage, leaps on match",
+          "displayName": "Chromatic Orb",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "90 ft",
+          "time": "Action"
+        },
+        "compelledDuelSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target has disadvantage vs others, can\u0027t move 30+ ft from you",
+          "displayName": "Compelled Duel",
+          "duration": "1 min [C]",
+          "known": "Wizard, Potent Dragonmark",
+          "level": 1,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Bonus Action"
+        },
+        "coneOfColdSpell": {
+          "area": "60 ft cone",
+          "casting": "Cast",
+          "description": "60 ft cone: 8d8 cold damage or half, killed creatures frozen",
+          "displayName": "Cone Of Cold",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 5,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "conjureMinorElementalsSpell": {
+          "area": "15 ft emanation",
+          "casting": "Cast",
+          "description": "15 ft emanation: attacks deal extra 2d8 chosen damage, difficult terrain for enemies",
+          "displayName": "Conjure Minor Elementals",
+          "duration": "10 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 4,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "controlFlamesSpell": {
+          "area": "5 ft cube",
+          "casting": "At Will",
+          "description": "Manipulate nonmagical flames: expand, extinguish, change color, or create shapes",
+          "displayName": "Control Flames",
+          "duration": "Instant or 1 hour",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "counterspellSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Interrupt creature casting spell, spell fails on failed save",
+          "displayName": "Counterspell",
+          "duration": "Instant",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "60 ft",
+          "time": "Reaction"
+        },
+        "createBonfireSpell": {
+          "area": "5 ft cube",
+          "casting": "At Will",
+          "description": "Bonfire deals 1d8 fire damage to creatures in its space",
+          "displayName": "Create Bonfire",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "cureWoundsSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Restore 2d8+modifier HP",
+          "displayName": "Cure Wounds",
+          "duration": "Instant",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [
+            "Artificer"
+          ],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "dancingLightsSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Create up to four hovering lights that you can move as a bonus action",
+          "displayName": "Dancing Lights",
+          "duration": "1 min [C]",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "120 ft",
+          "time": "Action"
+        },
+        "detectMagicSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Sense magic within 30 ft, see aura and school on visible creatures/objects",
+          "displayName": "Detect Magic",
+          "duration": "10 min [C]",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action [R]"
+        },
+        "dimensionDoorSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Teleport self +1 willing creature to location you can see/visualize/describe",
+          "displayName": "Dimension Door",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 4,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "500 ft",
+          "time": "Action"
+        },
+        "disguiseSelfSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Change appearance including clothing and equipment",
+          "displayName": "Disguise Self",
+          "duration": "1 hour",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [
+            "Artificer"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "elementalismSpell": {
+          "area": "Varies",
+          "casting": "At Will",
+          "description": "Control air, earth, fire, or water to create minor effects and shapes",
+          "displayName": "Elementalism",
+          "duration": "Instant",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "elminstersElusionSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Advantage on saves vs spells/magic, take no damage on successful save",
+          "displayName": "Elminster\u0027s Elusion",
+          "duration": "10 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [],
+          "range": "Self",
+          "time": "Bonus Action"
+        },
+        "encodeThoughtsSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Transform memory/idea into a thought strand that can be shared with others",
+          "displayName": "Encode Thoughts",
+          "duration": "8 hours",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action"
+        },
+        "expeditiousRetreatSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Take Dash action as bonus action",
+          "displayName": "Expeditious Retreat",
+          "duration": "10 min [C]",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Self",
+          "time": "Bonus Action"
+        },
+        "faerieFireSpell": {
+          "area": "20 ft cube",
+          "casting": "Cast",
+          "description": "Outlined creatures/objects can\u0027t be invisible, attacks have advantage",
+          "displayName": "Faerie Fire",
+          "duration": "1 min [C]",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "falseLifeSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Gain 2d4+4 temp HP",
+          "displayName": "False Life",
+          "duration": "Instant",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action"
+        },
+        "featherFallSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Up to 5 falling creatures descend 60 ft/round, take no fall damage",
+          "displayName": "Feather Fall",
+          "duration": "1 min",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [
+            "Artificer"
+          ],
+          "range": "60 ft",
+          "time": "Reaction"
+        },
+        "fireBoltSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Ranged spell attack deals 1d10 fire damage, ignites objects",
+          "displayName": "Fire Bolt",
+          "duration": "Instant",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "120 ft",
+          "time": "Action"
+        },
+        "friendsSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Target charmed for duration unless fighting or takes damage, knows after",
+          "displayName": "Friends",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "10 ft",
+          "time": "Action"
+        },
+        "frostbiteSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Deal 1d6 cold damage and disadvantage on next attack",
+          "displayName": "Frostbite",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "glyphofWardingSpell": {
+          "area": "10 ft diameter circle",
+          "casting": "Cast",
+          "description": "Inscribe glyph that explodes for 5d8 damage or stores spell",
+          "displayName": "Glyph of Warding",
+          "duration": "Until Dispelled or Triggered",
+          "known": [
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [],
+          "range": "Touch",
+          "time": "1 hour"
+        },
+        "greaseSpell": {
+          "area": "10 ft square",
+          "casting": "Cast",
+          "description": "10 ft square is difficult terrain, creatures fall prone",
+          "displayName": "Grease",
+          "duration": "1 min",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "greenFlameBladeSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Melee attack with fire leaping to nearby creature",
+          "displayName": "Green-Flame Blade",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self ",
+          "time": "Action"
+        },
+        "guardianOfFaithSpell": {
+          "area": "10 ft radius",
+          "casting": "Cast",
+          "description": "Large guardian deals 20 radiant when creature enters 10 ft",
+          "displayName": "Guardian of Faith",
+          "duration": "8 hours",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 4,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "guidanceSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Target adds 1d4 to ability check using chosen skill",
+          "displayName": "Guidance",
+          "duration": "1 min [C]",
+          "known": [
+            "Artificer"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "gustSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Push creature 5 ft, move object 10 ft, or create harmless air effect",
+          "displayName": "Gust",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "hasteSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Double speed, +2 AC, advantage on DEX saves, extra action",
+          "displayName": "Haste",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "identifySpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Learn properties of magic item or ongoing spells on creature",
+          "displayName": "Identify",
+          "duration": "Instant",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Touch",
+          "time": "1 min [R]"
+        },
+        "infestationSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Deal 1d6 poison damage and move target 5 ft randomly",
+          "displayName": "Infestation",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "jumpSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target can jump 30 ft by spending 10 ft movement",
+          "displayName": "Jump",
+          "duration": "1 min",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Bonus Action"
+        },
+        "leomundsTinyHutSpell": {
+          "area": "10 ft emanation",
+          "casting": "Cast",
+          "description": "10 ft emanation: immobile dome blocks spells, comfortable atmosphere",
+          "displayName": "Leomund\u0027s Tiny Hut",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [],
+          "range": "Self",
+          "time": "1 min [R]"
+        },
+        "lightSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Object sheds bright light 20 ft and dim light 20 ft more",
+          "displayName": "Light",
+          "duration": "1 hour",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Artificer"
+          ],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "lightningBoltSpell": {
+          "area": "100 ft line",
+          "casting": "Cast",
+          "description": "100 ft line: 8d6 lightning damage or half",
+          "displayName": "Lightning Bolt",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "lightningLureSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Pull creature 10 ft and deal 1d8 lightning damage if close",
+          "displayName": "Lightning Lure",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self ",
+          "time": "Action"
+        },
+        "longstriderSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target\u0027s speed increases by 10 ft",
+          "displayName": "Longstrider",
+          "duration": "1 hour",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "mageArmorSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "AC becomes 13+DEX for unarmored creature",
+          "displayName": "Mage Armor",
+          "duration": "8 hours",
+          "known": [
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "mageHandSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Create spectral hand to manipulate objects, open doors, or retrieve items",
+          "displayName": "Mage Hand",
+          "duration": "1 min",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Artificer"
+          ],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "magicStoneSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Imbue 3 pebbles that deal 1d6+modifier bludgeoning damage when thrown",
+          "displayName": "Magic Stone",
+          "duration": "1 min",
+          "known": [
+            "Artificer"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Bonus Action"
+        },
+        "majorImageSpell": {
+          "area": "20 ft cube",
+          "casting": "Cast",
+          "description": "20 ft cube: illusion with sound/smell/temperature, you control",
+          "displayName": "Major Image",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "120 ft",
+          "time": "10 min [C]"
+        },
+        "mendingSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Repair single break or tear in object up to 1 foot in size",
+          "displayName": "Mending",
+          "duration": "Instant",
+          "known": [
+            "Tinker\u0027s Magic"
+          ],
+          "level": 0,
+          "prepared": [
+            "Tinker\u0027s Magic"
+          ],
+          "range": "Touch",
+          "time": "1 min"
+        },
+        "messageSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Whisper message to creature in range that can reply in whisper",
+          "displayName": "Message",
+          "duration": "1 round",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "120 ft",
+          "time": "Action"
+        },
+        "mindSliverSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Deal 1d6 psychic damage and subtract 1d4 from next save",
+          "displayName": "Mind Sliver",
+          "duration": "1 round",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "minorIllusionSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Create illusory sound or image lasting up to 1 minute",
+          "displayName": "Minor Illusion",
+          "duration": "1 min",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "mirrorImageSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Create 3 duplicates, attacks roll d6 to hit duplicate instead",
+          "displayName": "Mirror Image",
+          "duration": "1 min",
+          "known": [
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action"
+        },
+        "mistyStepSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Teleport 30 ft to unoccupied space you can see",
+          "displayName": "Misty Step",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Bonus Action"
+        },
+        "moldEarthSpell": {
+          "area": "5 ft cube",
+          "casting": "At Will",
+          "description": "Excavate, shape, or create difficult terrain with dirt/stone",
+          "displayName": "Mold Earth",
+          "duration": "Instant or 1 hour",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "poisonSpraySpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Ranged spell attack deals 1d12 poison damage",
+          "displayName": "Poison Spray",
+          "duration": "Instant",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "prestidigitationSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Create minor magical effects: sensory, light/snuff, clean, flavor, or trinket",
+          "displayName": "Prestidigitation",
+          "duration": "Instant or 1 hour",
+          "known": [
+            "Artificer",
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "10 ft",
+          "time": "Action"
+        },
+        "protectionfromEnergySpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target gains resistance to chosen energy type",
+          "displayName": "Protection from Energy",
+          "duration": "1 hour [C]",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 3,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "purifyFoodandDrinkSpell": {
+          "area": "5 ft sphere",
+          "casting": "Cast",
+          "description": "Remove poison and rot from food and drink in 5 ft radius",
+          "displayName": "Purify Food and Drink",
+          "duration": "Instant",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "10 ft",
+          "time": "Action [R]"
+        },
+        "rayofFrostSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Ranged spell attack deals 1d8 cold damage, reduces speed by 10 ft",
+          "displayName": "Ray of Frost",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "resistanceSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Target adds 1d4 to one damage reduction of chosen type",
+          "displayName": "Resistance",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "sanctuarySpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Attackers must choose new target or lose attack/spell",
+          "displayName": "Sanctuary",
+          "duration": "1 min",
+          "known": [
+            "Artificer"
+          ],
+          "level": 1,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Bonus Action"
+        },
+        "shapeWaterSpell": {
+          "area": "5 ft cube",
+          "casting": "At Will",
+          "description": "Move, animate, color, or freeze water in 5 ft cube",
+          "displayName": "Shape Water",
+          "duration": "Instant or 1 hour",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "shieldOfFaithSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target gains +2 AC",
+          "displayName": "Shield of Faith",
+          "duration": "10 min [C]",
+          "known": [
+            "Potent DragonMark",
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "60 ft",
+          "time": "Bonus Action"
+        },
+        "shieldSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "+5 AC and immune to magic missile until start of next turn",
+          "displayName": "Shield",
+          "duration": "1 round",
+          "known": [
+            "Mark of Sentinel"
+          ],
+          "level": 1,
+          "prepared": [
+            "Mark of Sentinel"
+          ],
+          "range": "Self",
+          "time": "Reaction"
+        },
+        "shockingGraspSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Melee spell attack deals 1d8 lightning damage, no opportunity attacks",
+          "displayName": "Shocking Grasp",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Touch",
+          "time": "Action"
+        },
+        "sparetheDyingSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Stabilize dying creature",
+          "displayName": "Spare the Dying",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "15 ft",
+          "time": "Action"
+        },
+        "steelWindStrikeSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Melee spell attack vs up to 5 targets for 6d10 force, teleport near one",
+          "displayName": "Steel Wind Strike",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 5,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "summonConstructSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Summon construct spirit that deals 1d8+4+level damage",
+          "displayName": "Summon Construct",
+          "duration": "1 hour [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 4,
+          "prepared": [],
+          "range": "90 ft",
+          "time": "Action"
+        },
+        "swordBurstSpell": {
+          "area": "5 ft radius",
+          "casting": "At Will",
+          "description": "Creatures within 5 ft take 1d6 force damage",
+          "displayName": "Sword Burst",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self ",
+          "time": "Action"
+        },
+        "thornWhipSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Melee spell attack deals 1d6 piercing, pulls Large or smaller 10 ft",
+          "displayName": "Thorn Whip",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "30 ft",
+          "time": "Action"
+        },
+        "thunderclapSpell": {
+          "area": "5 ft emanation",
+          "casting": "At Will",
+          "description": "Each creature takes 1d6 thunder damage, audible 100 ft",
+          "displayName": "Thunderclap",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "Self",
+          "time": "Action"
+        },
+        "tolltheDeadSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Deal 1d8 necrotic",
+          "displayName": "Toll the Dead",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "trueStrikeSpell": {
+          "area": "",
+          "casting": "At Will",
+          "description": "Make weapon attack using casting modifier that deals radiant damage",
+          "displayName": "True Strike",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 0,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "Self",
+          "time": "Action"
+        },
+        "vortexWarpSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Teleport willing/unwilling creature to unoccupied space",
+          "displayName": "Vortex Warp",
+          "duration": "Instant",
+          "known": [
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "90 ft",
+          "time": "Action"
+        },
+        "wallOfFireSpell": {
+          "area": "60 ft long 20 ft high 1 ft thick or 20 ft diameter ring",
+          "casting": "Cast",
+          "description": "60-20-1 or 20 ft ring: 5d8 fire or half, one side deals 5d8",
+          "displayName": "Wall of Fire",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 4,
+          "prepared": [],
+          "range": "120 ft",
+          "time": "Action"
+        },
+        "wallOfStoneSpell": {
+          "area": "10 panels 10x10 ft",
+          "casting": "Cast",
+          "description": "10 panels 10-10-0.5 ft: AC 15, 30 HP/inch, push aside or take damage",
+          "displayName": "Wall of Stone",
+          "duration": "10 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 5,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "120 ft",
+          "time": "Action"
+        },
+        "wardingBondSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "Target gains +1 AC/saves and resistance, you take same damage",
+          "displayName": "Warding Bond",
+          "duration": "Instant",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "Touch",
+          "time": "1 hour"
+        },
+        "witchBoltSpell": {
+          "area": "",
+          "casting": "Cast",
+          "description": "2d12 lightning damage, bonus action deals 1d12 automatically",
+          "displayName": "Witch Bolt",
+          "duration": "1 min [C]",
+          "known": [
+            "Wizard"
+          ],
+          "level": 1,
+          "prepared": [
+            "Wizard"
+          ],
+          "range": "60 ft",
+          "time": "Action"
+        },
+        "zoneofTruthSpell": {
+          "area": "15 ft sphere",
+          "casting": "Cast",
+          "description": "15 ft sphere: creatures can\u0027t lie, you know if they save",
+          "displayName": "Zone of Truth",
+          "duration": "10 min",
+          "known": [
+            "Potent Dragonmark",
+            "Wizard"
+          ],
+          "level": 2,
+          "prepared": [
+            "Potent Dragonmark"
+          ],
+          "range": "60 ft",
+          "time": "10 min"
+        }
+      },
+      "tools": {
+        "alchemistsSupplies": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Alchemist\u0027s Supplies",
+          "notes": ""
+        },
+        "brewersSupplies": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Brewer\u0027s Supplies",
+          "notes": ""
+        },
+        "calligraphersSupplies": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Calligrapher\u0027s Supplies",
+          "notes": ""
+        },
+        "carpentersTools": {
+          "bucket": [
+            "strengthModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Carpenter\u0027s Tools",
+          "notes": ""
+        },
+        "cartographersTools": {
+          "bucket": [
+            "wisdomModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Cartographer\u0027s Tools",
+          "notes": ""
+        },
+        "cobblersTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Cobbler\u0027s Tools",
+          "notes": ""
+        },
+        "cooksUtensils": {
+          "bucket": [
+            "wisdomModifier"
+          ],
+          "displayName": "Cook\u0027s Utensils",
+          "notes": ""
+        },
+        "disguiseKit": {
+          "bucket": [
+            "charismaModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Disguise Kit",
+          "notes": ""
+        },
+        "forgeryKit": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Forgery Kit",
+          "notes": ""
+        },
+        "glassblowersTools": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Glassblower\u0027s Tools",
+          "notes": ""
+        },
+        "herbalismKit": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Herbalism Kit",
+          "notes": ""
+        },
+        "jewelersTools": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Jeweler\u0027s Tools",
+          "notes": ""
+        },
+        "leatherworkersTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Leatherworker\u0027s Tools",
+          "notes": ""
+        },
+        "masonsTools": {
+          "bucket": [
+            "strengthModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Mason\u0027s Tools",
+          "notes": ""
+        },
+        "navigatorsTools": {
+          "bucket": [
+            "wisdomModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Navigator\u0027s Tools",
+          "notes": ""
+        },
+        "paintersSupplies": {
+          "bucket": [
+            "wisdomModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Painter\u0027s Supplies",
+          "notes": ""
+        },
+        "poisonersKit": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Poisoner\u0027s Kit",
+          "notes": ""
+        },
+        "pottersTools": {
+          "bucket": [
+            "intelligenceModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Potter\u0027s Tools",
+          "notes": ""
+        },
+        "smithsTools": {
+          "bucket": [
+            "strengthModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Smith\u0027s Tools",
+          "notes": ""
+        },
+        "thievesTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Thieves\u0027 Tools",
+          "notes": ""
+        },
+        "tinkersTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty",
+            "proficiencyBonus"
+          ],
+          "displayName": "Tinker\u0027s Tools",
+          "notes": ""
+        },
+        "weaversTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Weaver\u0027s Tools",
+          "notes": ""
+        },
+        "woodcarversTools": {
+          "bucket": [
+            "dexterityModifier",
+            "exhaustionPenalty"
+          ],
+          "displayName": "Woodcarver\u0027s Tools",
+          "notes": ""
+        }
+      }
+    },
+    "what": {
+      "acrobaticsCheck": 8,
+      "acrobaticsCheckAdvantage": 0,
+      "animalHandlingCheck": 0,
+      "animalHandlingCheckAdvantage": 0,
+      "arcanaCheck": 9,
+      "arcanaCheckAdvantage": 0,
+      "athleticsCheck": 0,
+      "athleticsCheckAdvantage": 0,
+      "charismaCheck": 1,
+      "charismaCheckAdvantage": 0,
+      "charismaModifier": 1,
+      "charismaScore": 12,
+      "constitutionCheck": 6,
+      "constitutionCheckAdvantage": 0,
+      "constitutionModifier": 2,
+      "constitutionScore": 14,
+      "deceptionCheck": 1,
+      "deceptionCheckAdvantage": 0,
+      "dexterityCheck": 4,
+      "dexterityCheckAdvantage": 0,
+      "dexterityModifier": 4,
+      "dexterityScore": 18,
+      "exhaustionPenalty": 0,
+      "exhaustionSpeedPenalty": 0,
+      "historyCheck": 9,
+      "historyCheckAdvantage": 0,
+      "initiativeBonus": 4,
+      "insightCheck": 0,
+      "insightCheckAdvantage": 0,
+      "intelligenceCheck": 9,
+      "intelligenceCheckAdvantage": 0,
+      "intelligenceModifier": 5,
+      "intelligenceScore": 20,
+      "intimidationCheck": 1,
+      "intimidationCheckAdvantage": 0,
+      "investigationCheck": 13,
+      "investigationCheckAdvantage": 0,
+      "medicineCheck": 0,
+      "medicineCheckAdvantage": 0,
+      "natureCheck": 9,
+      "natureCheckAdvantage": 0,
+      "passiveInsight": 10,
+      "passiveInvestigation": 23,
+      "passivePerception": 14,
+      "perceptionCheck": 4,
+      "perceptionCheckAdvantage": 0,
+      "performanceCheck": 1,
+      "performanceCheckAdvantage": 0,
+      "persuasionCheck": 1,
+      "persuasionCheckAdvantage": 0,
+      "proficiencyBonus": 4,
+      "religionCheck": 5,
+      "religionCheckAdvantage": 0,
+      "sleightOfHandCheck": 4,
+      "sleightOfHandCheckAdvantage": 0,
+      "stealthCheck": 8,
+      "stealthCheckAdvantage": 0,
+      "strengthCheck": 0,
+      "strengthCheckAdvantage": 0,
+      "strengthModifier": 0,
+      "strengthScore": 10,
+      "survivalCheck": 0,
+      "survivalCheckAdvantage": 0,
+      "wisdomCheck": 0,
+      "wisdomCheckAdvantage": 0,
+      "wisdomModifier": 0,
+      "wisdomScore": 11
+    },
+    "when": {
+      "bladesongActive": false,
+      "bladesongInactive": true,
+      "disguiseSelfSpellActive": null,
+      "disguiseSelfSpellInactive": true,
+      "hasteSpellActive": false,
+      "hasteSpellInactive": true,
+      "mageArmorSpellActive": false,
+      "mageArmorSpellInactive": true,
+      "shieldOfFaithSpellActive": null,
+      "shieldOfFaithSpellInactive": true,
+      "shieldSpellActive": null,
+      "shieldSpellInactive": true
+    }
+  },
+  "propConfig": {
+    "props.auth": {
+      "access": "PRIVATE",
+      "persistent": false
+    },
+    "props.device.accelerometer": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.identifier": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.timezone": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.type": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.userAgent": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.gateway": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.data": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.permissionGranted": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.host": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.id": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.lastActivity": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.capable": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.enabled": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.lastSynced": {
+      "access": "SYSTEM",
+      "persistent": false
+    }
+  },
+  "props": {
+    "address": "[0:0:0:0:0:0:0:1]",
+    "device": {},
+    "geolocation": {},
+    "locale": "en-US",
+    "offline": {},
+    "timeZoneId": "America/Denver"
+  }
+}

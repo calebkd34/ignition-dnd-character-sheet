@@ -1,0 +1,2863 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 720,
+      "width": 1249
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "AbilityScores"
+            },
+            "position": {
+              "height": 108,
+              "width": 573,
+              "x": 21,
+              "y": 24
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.data.abilityScores"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "baseline",
+              "justify": "space-between",
+              "path": "Templates/AbilityScore"
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "SavingThrows"
+            },
+            "position": {
+              "height": 147,
+              "width": 150,
+              "x": 20,
+              "y": 163
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.data.saves"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/Skill",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 2
+              },
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "Skills"
+            },
+            "position": {
+              "height": 435,
+              "width": 175,
+              "x": 183.5,
+              "y": 163
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.data.skills"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/Skill",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 2
+              },
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "SavingThrowCaption"
+            },
+            "position": {
+              "height": 19,
+              "width": 150,
+              "x": 20,
+              "y": 144
+            },
+            "props": {
+              "text": "Saving Throws",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "SkillsCaption"
+            },
+            "position": {
+              "height": 19,
+              "width": 175,
+              "x": 183,
+              "y": 144
+            },
+            "props": {
+              "text": "Skills",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "PassiveSkillsCaption"
+            },
+            "position": {
+              "height": 19,
+              "width": 150,
+              "x": 20,
+              "y": 321
+            },
+            "props": {
+              "text": "Passive Skills",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "TextArea"
+                },
+                "position": {
+                  "tabIndex": 4
+                },
+                "props": {
+                  "text": "put heroic inspiration and hit dice in limited use\n\nfor the sidebar, have each component with a detailed entry send a message when it is clicked on. Then, the sidebar listens"
+                },
+                "type": "ia.input.text-area"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "events": {
+                          "component": {
+                            "onActionPerformed": {
+                              "config": {
+                                "script": "\tself.getSibling(\"SpellListOptions\").meta.visible \u003d True"
+                              },
+                              "scope": "G",
+                              "type": "script"
+                            }
+                          }
+                        },
+                        "meta": {
+                          "name": "SpellListButton"
+                        },
+                        "position": {
+                          "height": 28,
+                          "width": 103,
+                          "x": 561,
+                          "y": 12
+                        },
+                        "props": {
+                          "primary": false,
+                          "text": "Manage Spells",
+                          "textStyle": {
+                            "fontSize": 12
+                          }
+                        },
+                        "type": "ia.input.button"
+                      },
+                      {
+                        "events": {
+                          "component": {
+                            "onActionPerformed": [
+                              {
+                                "config": {
+                                  "script": "\tself.meta.visible \u003d False\n\tself.props.value \u003d \"\""
+                                },
+                                "scope": "G",
+                                "type": "script"
+                              },
+                              {
+                                "config": {
+                                  "draggable": true,
+                                  "id": "prepare",
+                                  "modal": false,
+                                  "overlayDismiss": false,
+                                  "resizable": true,
+                                  "showCloseIcon": true,
+                                  "type": "open",
+                                  "viewParams": {
+                                    "spellList": "{/root/Large/Abilities/SpellTab/SpellHeader/SpellListOptions.props.value}"
+                                  },
+                                  "viewPath": "Templates/PreparedSpellClass",
+                                  "viewportBound": false
+                                },
+                                "scope": "C",
+                                "type": "popup"
+                              }
+                            ]
+                          }
+                        },
+                        "meta": {
+                          "name": "SpellListOptions",
+                          "visible": false
+                        },
+                        "position": {
+                          "height": 28,
+                          "width": 103,
+                          "x": 561,
+                          "y": 12
+                        },
+                        "propConfig": {
+                          "props.options": {
+                            "binding": {
+                              "config": {
+                                "path": "session.custom.data.spellStuff.preparedCount"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\treturn [{\"value\":i, \"label\":i} for i in value.keys()]",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "placeholder": {
+                            "color": "#000000FC",
+                            "text": "Spell List"
+                          },
+                          "search": {
+                            "enabled": false
+                          },
+                          "style": {
+                            "fontSize": 12
+                          },
+                          "textAlign": "center"
+                        },
+                        "type": "ia.input.dropdown"
+                      },
+                      {
+                        "meta": {
+                          "name": "Concentration"
+                        },
+                        "position": {
+                          "height": 28,
+                          "width": 189,
+                          "x": 364,
+                          "y": 12.199996948242188
+                        },
+                        "propConfig": {
+                          "props.options": {
+                            "binding": {
+                              "config": {
+                                "path": ".../Spells.props.instances"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\treturn [{\"label\":i[\"displayName\"],\"value\":i[\"id\"]} for i in value if \"[C]\" in i[\"duration\"]]",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "dropdownOptionStyle": {
+                            "fontSize": 12
+                          },
+                          "placeholder": {
+                            "color": "#000000",
+                            "text": "Concentration Slot"
+                          },
+                          "search": {
+                            "enabled": false
+                          },
+                          "showClearIcon": true,
+                          "style": {
+                            "fontSize": 12,
+                            "fontStyle": "italic"
+                          },
+                          "value": null
+                        },
+                        "type": "ia.input.dropdown"
+                      },
+                      {
+                        "meta": {
+                          "name": "SpellHeaderLabel"
+                        },
+                        "position": {
+                          "height": 23,
+                          "width": 603,
+                          "x": 60,
+                          "y": 57
+                        },
+                        "props": {
+                          "text": "Name                                            Casting         Range        Description                                                                                                                                 Level",
+                          "textStyle": {
+                            "fontSize": 9
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "SpellSlots"
+                        },
+                        "position": {
+                          "height": 32,
+                          "width": 317,
+                          "x": 20,
+                          "y": 12
+                        },
+                        "propConfig": {
+                          "props.instances": {
+                            "binding": {
+                              "config": {
+                                "path": "session.custom.data.spellSlots"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\tslots \u003d []\n\t\n\tif \"firstLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.firstLevel\",\"maxBucket\":value[\"firstLevel\"][\"maxBucket\"],\"color\":value[\"firstLevel\"][\"color\"]})\n\tif \"secondLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.secondLevel\",\"maxBucket\":value[\"secondLevel\"][\"maxBucket\"],\"color\":value[\"secondLevel\"][\"color\"]})\n\tif \"thirdLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.thirdLevel\",\"maxBucket\":value[\"thirdLevel\"][\"maxBucket\"],\"color\":value[\"thirdLevel\"][\"color\"]})\n\tif \"fourthLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.fourthLevel\",\"maxBucket\":value[\"fourthLevel\"][\"maxBucket\"],\"color\":value[\"fourthLevel\"][\"color\"]})\n\tif \"fifthLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.fifthLevel\",\"maxBucket\":value[\"fifthLevel\"][\"maxBucket\"],\"color\":value[\"fifthLevel\"][\"color\"]})\n\tif \"sixthLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.sixthLevel\",\"maxBucket\":value[\"sixthLevel\"][\"maxBucket\"],\"color\":value[\"sixthLevel\"][\"color\"]})\n\tif \"seventhLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.seventhLevel\",\"maxBucket\":value[\"seventhLevel\"][\"maxBucket\"],\"color\":value[\"seventhLevel\"][\"color\"]})\n\tif \"eighthLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.eighthLevel\",\"maxBucket\":value[\"eighthLevel\"][\"maxBucket\"],\"color\":value[\"eighthLevel\"][\"color\"]})\n\tif \"ninthLevel\" in value.keys():\n\t\tslots.append({\"path\":\"spellSlots.ninthLevel\",\"maxBucket\":value[\"ninthLevel\"][\"maxBucket\"],\"color\":value[\"ninthLevel\"][\"color\"]})\n\t\n\treturn slots",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "alignContent": "flex-start",
+                          "alignItems": "flex-start",
+                          "elementPosition": {
+                            "basis": 35.5,
+                            "grow": 0,
+                            "shrink": 0
+                          },
+                          "path": "Templates/Resource",
+                          "style": {
+                            "overflow": "hidden"
+                          },
+                          "useDefaultViewWidth": false
+                        },
+                        "type": "ia.display.flex-repeater"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "FirstLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "1st",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "SecondLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "2nd",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "ThirdLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "3rd",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "FourthLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "4th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "FifthLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "5th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "SixthLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "6th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "SeventhLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "7th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "EighthLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "8th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "NinthLabel"
+                            },
+                            "position": {
+                              "basis": "35.5px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "meta.visible": {
+                                "binding": {
+                                  "config": {
+                                    "path": ".../SpellSlots.props.instances"
+                                  },
+                                  "transforms": [
+                                    {
+                                      "code": "\treturn len(value) \u003e\u003d int(self.props.text[0])",
+                                      "type": "script"
+                                    }
+                                  ],
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "alignVertical": "top",
+                              "text": "9th",
+                              "textStyle": {
+                                "fontSize": 10,
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          }
+                        ],
+                        "meta": {
+                          "name": "SpellSlotsHeader"
+                        },
+                        "position": {
+                          "height": 12,
+                          "width": 317,
+                          "x": 18
+                        },
+                        "props": {
+                          "style": {
+                            "overflow": "hidden"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "SpellHeader"
+                    },
+                    "position": {
+                      "basis": "75px"
+                    },
+                    "props": {
+                      "style": {
+                        "overflow": "visible"
+                      }
+                    },
+                    "type": "ia.container.coord"
+                  },
+                  {
+                    "meta": {
+                      "name": "Spells"
+                    },
+                    "position": {
+                      "basis": "320px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.instances": {
+                        "binding": {
+                          "config": {
+                            "path": "session.custom.data.spells"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\tspells \u003d []\n\tfor spellId, spellData in value.items():\n\t\tif spellData[\"prepared\"] or (\"[R]\" in spellData[\"time\"] and \"Wizard\" in spellData[\"known\"]):\n\t\t\tspells.append({\n\t\t\t\t\"id\":spellId,\n\t\t\t\t\"casting\":\"As Ritual\" if not spellData[\"prepared\"] and \"[R]\" in spellData[\"time\"] else spellData[\"casting\"],\n\t\t\t\t\"displayName\":spellData[\"displayName\"],\n\t\t\t\t\"level\":spellData[\"level\"],\n\t\t\t\t\"prepared\":\", \".join(spellData[\"prepared\"]),\n\t\t\t\t\"time\":spellData[\"time\"],\n\t\t\t\t\"duration\":spellData[\"duration\"],\n\t\t\t\t\"range\":spellData[\"range\"],\n\t\t\t\t\"description\":spellData[\"description\"]\n\t\t\t})\n\t\t\t\n\treturn sorted(spells, key \u003d lambda x: (x[\"level\"], x[\"displayName\"]))",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "direction": "column",
+                      "path": "Templates/Spell",
+                      "useDefaultViewWidth": false
+                    },
+                    "type": "ia.display.flex-repeater"
+                  }
+                ],
+                "meta": {
+                  "name": "SpellTab"
+                },
+                "position": {
+                  "tabIndex": 1
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Abilities"
+            },
+            "position": {
+              "height": 583,
+              "width": 676,
+              "x": 375,
+              "y": 132.2
+            },
+            "props": {
+              "contentStyle": {
+                "backgroundColor": "#FFFFFF00"
+              },
+              "currentTabIndex": 1,
+              "menuType": "modern",
+              "tabs": [
+                "Actions",
+                "Spells",
+                "Inventory",
+                "Features",
+                "Notes",
+                "Extras"
+              ]
+            },
+            "type": "ia.container.tab"
+          },
+          {
+            "meta": {
+              "name": "LimitedResources"
+            },
+            "position": {
+              "height": 262,
+              "width": 182,
+              "x": 1064,
+              "y": 453.2
+            },
+            "props": {
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "overflowY": "auto"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "ActiveEffectsCaptions"
+            },
+            "position": {
+              "height": 19,
+              "width": 182,
+              "x": 1064,
+              "y": 144.8
+            },
+            "props": {
+              "text": "Active Effects",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "LimitedUseCaption"
+            },
+            "position": {
+              "height": 19,
+              "width": 182,
+              "x": 1064,
+              "y": 434
+            },
+            "props": {
+              "text": "Limited Resources",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "TopLabel"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Proficiency",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if({value}\u003c0,{value},\"+\"+{value})",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": 23,
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "BottomLabel"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Bonus",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "ProficiencyBonus"
+                },
+                "position": {
+                  "basis": "94px"
+                },
+                "propConfig": {
+                  "custom.bucket": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.labeled.proficiencyBonus"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "custom.precedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "        bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n        unfiltered \u003d []\n\n        # extract entries\n        for entry in bucket:\n            if isinstance(entry, dict):\n                unfiltered.append(entry[\"when\"])\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unfiltered.append(SubEntry)\n                else:\n                    unfiltered.append(entry[\"what\"])\n            else:\n                unfiltered.append(entry)\n\n        return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.value": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "        bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n        unprocessed \u003d []\n\n        # extract entries\n        for entry in bucket:\n            if isinstance(entry, dict):\n                if self.session.custom.when[entry[\"when\"]]:\n                    if isinstance(entry[\"what\"], list):\n                        for SubEntry in entry[\"what\"]:\n                            unprocessed.append(SubEntry)\n                    else:\n                        unprocessed.append(entry[\"what\"])\n            else:\n                unprocessed.append(entry)\n\n        return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "    if self.session.custom.what.proficiencyBonus !\u003d currentValue.value:\n        self.session.custom.what.proficiencyBonus \u003d currentValue.value\n        system.perspective.sendMessage(\"refresh\", \"proficiencyBonus\", \"session\")\n        # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderWidth": 2
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refresh",
+                      "pageScope": false,
+                      "script": "    if payload in self.custom.precedents:\n        self.refreshBinding(\"custom.value\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+                      "sessionScope": true,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "SpeedOptions"
+                    },
+                    "position": {
+                      "basis": "32px"
+                    },
+                    "props": {
+                      "options": [
+                        {
+                          "label": "Walking",
+                          "value": "walkingSpeed"
+                        },
+                        {
+                          "label": "Burrow",
+                          "value": "burrowingSpeed"
+                        },
+                        {
+                          "label": "Swim",
+                          "value": "swimmingSpeed"
+                        },
+                        {
+                          "label": "Fly",
+                          "value": "flyingSpeed"
+                        },
+                        {
+                          "label": "Climb",
+                          "value": "climbingSpeed"
+                        }
+                      ],
+                      "search": {
+                        "enabled": false
+                      },
+                      "style": {
+                        "backgroundColor": "#FFFFFF00",
+                        "borderWidth": 0,
+                        "fontSize": 13
+                      },
+                      "value": "walkingSpeed"
+                    },
+                    "type": "ia.input.dropdown"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "basis": "49px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.speedValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": 23,
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_1"
+                    },
+                    "position": {
+                      "basis": "33px"
+                    },
+                    "props": {
+                      "text": "Speed",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Speeds"
+                },
+                "position": {
+                  "basis": "94px"
+                },
+                "propConfig": {
+                  "custom.multiplierBucket": {
+                    "binding": {
+                      "config": {
+                        "expression": "property(\"session.custom.data.labeled.\" + {./SpeedOptions.props.value} + \"Multiplier\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "custom.multiplierPrecedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.multiplierBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.multiplierValue": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.multiplierBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    product \u003d 1\n    for x in [self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed]:\n    \tproduct \u003d product * x\n    return product",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "    if previousValue.value !\u003d currentValue.value:\n        self.refreshBinding(\"custom.speedValue\")"
+                    }
+                  },
+                  "custom.speedBucket": {
+                    "binding": {
+                      "config": {
+                        "expression": "property(\"session.custom.data.labeled.\" + {./SpeedOptions.props.value})"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "custom.speedPrecedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.speedBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\t\n\tunfiltered.append(str(self.getChild(\"SpeedOptions\").props.value + \"Multiplier\"))\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.speedValue": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.speedBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n    \n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed]) * self.custom.multiplierValue",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderWidth": 2
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refresh",
+                      "pageScope": false,
+                      "script": "#    system.perspective.print(\"speed heard {}\".format(payload))\n    if payload in self.custom.multiplierPrecedents:\n        self.refreshBinding(\"custom.multiplierValue\")\n    if payload in self.custom.speedPrecedents:\n        self.refreshBinding(\"custom.speedValue\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+                      "sessionScope": true,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "TopLabel"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Armor",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Value"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": 23,
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "BottomLabel"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Class",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "ArmorClass"
+                },
+                "position": {
+                  "basis": "94px"
+                },
+                "propConfig": {
+                  "custom.bucket": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.labeled.armorClass"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "custom.precedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.value": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "        bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n        unprocessed \u003d []\n\n        # extract entries\n        for entry in bucket:\n            if isinstance(entry, dict):\n                if self.session.custom.when[entry[\"when\"]]:\n                    if isinstance(entry[\"what\"], list):\n                        for SubEntry in entry[\"what\"]:\n                            unprocessed.append(SubEntry)\n                    else:\n                        unprocessed.append(entry[\"what\"])\n            else:\n                unprocessed.append(entry)\n\n        return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderWidth": 2
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refresh",
+                      "pageScope": false,
+                      "script": "    if payload in self.custom.precedents:\n        self.refreshBinding(\"custom.value\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+                      "sessionScope": true,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Initiative",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.style.color": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.advantageValue"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "range",
+                              "mappings": [
+                                {
+                                  "input": {
+                                    "max": 2,
+                                    "min": 1
+                                  },
+                                  "output": "#00AC00"
+                                },
+                                {
+                                  "input": {
+                                    "max": -1,
+                                    "min": -2
+                                  },
+                                  "output": "#D90000"
+                                }
+                              ],
+                              "outputType": "color",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if({value}\u003c0,{value},\"+\"+{value})",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": 23,
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_1"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "props": {
+                      "text": "Bonus",
+                      "textStyle": {
+                        "fontSize": 13,
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "InitiativeBonus"
+                },
+                "position": {
+                  "basis": "94px"
+                },
+                "propConfig": {
+                  "custom.advantageBucket": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.labeled.initiativeAdvantage"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "custom.advantagePrecedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.advantageBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.advantageValue": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.advantageBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.value": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.valueBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "    if previousValue.value !\u003d currentValue.value:\n        self.session.custom.what.initiativeBonus \u003d currentValue\n        system.perspective.sendMessage(\"refresh\", \"initiativeBonus\", \"session\")\n        # system.perspective.print(\"{}Check updated\".format(self.view.params.id))"
+                    }
+                  },
+                  "custom.valueBucket": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.labeled.initiativeBonus"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "custom.valuePrecedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.valueBucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderWidth": 2
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refresh",
+                      "pageScope": false,
+                      "script": "    if payload in self.custom.valuePrecedents:\n        self.refreshBinding(\"custom.value\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))\n    \n    if payload in self.custom.advantagePrecedents:\n        self.refreshBinding(\"custom.advantageValue\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+                      "sessionScope": true,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "TempHPBar"
+                    },
+                    "position": {
+                      "height": 11,
+                      "rotate": {
+                        "angle": -90
+                      },
+                      "width": 90,
+                      "x": 117,
+                      "y": 47
+                    },
+                    "propConfig": {
+                      "props.max": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "expression": "{session.custom.data.instants.currentHP} + {session.custom.data.instants.tempHP}"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "bar": {
+                        "color": "#5FCEF3"
+                      }
+                    },
+                    "type": "ia.display.progress"
+                  },
+                  {
+                    "meta": {
+                      "name": "MaxHP"
+                    },
+                    "position": {
+                      "height": 43,
+                      "width": 72,
+                      "x": 82.5,
+                      "y": 20.4
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "\"/\" + {parent.custom.value}"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": 30,
+                        "fontWeight": "bold",
+                        "textAlign": "left"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_1"
+                    },
+                    "position": {
+                      "height": 26,
+                      "width": 65,
+                      "x": 55.5,
+                      "y": 1.1999999999999997
+                    },
+                    "props": {
+                      "text": "Hit Points",
+                      "textStyle": {
+                        "fontSize": 13
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tdamage \u003d {}\n\tdamage[\"Basic\"] \u003d self.getSibling(\"HPBucket\").custom.value\n\tsystem.perspective.sendMessage(\"damage\", damage, \"session\")"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      },
+                      "dom": {
+                        "onMouseEnter": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d 1\n\tself.getSibling(\"HPBucket\").meta.visible \u003d True\n\tself.getSibling(\"HPBucket\").custom.type \u003d \"minus\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onMouseLeave": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").meta.visible \u003d False"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onWheel": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d max(\n\t\t0, self.getSibling(\"HPBucket\").custom.value - event.deltaY / 100\n\t)\n\tself.getSibling(\"HPBucket\").custom.type \u003d \"minus\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "contextMenu": {
+                        "enabled": true,
+                        "items": [
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/clean_hands",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Acid",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/plumbing",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Bludgeoning",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/ac_unit",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Cold",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/local_fire_department",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Fire",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/star",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Force",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/offline_bolt",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Lightning",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/bubble_chart",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Necrotic",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/colorize",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Piercing",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/masks",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Poison",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/psychology",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Psychic",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/wb_sunny",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Radiant",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/content_cut",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Slashing",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "material/campaign",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "page",
+                              "type": "damage"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Thunder",
+                            "type": "message"
+                          }
+                        ]
+                      },
+                      "name": "Hurt"
+                    },
+                    "position": {
+                      "height": 34,
+                      "width": 34,
+                      "x": 32.5,
+                      "y": 65
+                    },
+                    "propConfig": {
+                      "meta.contextMenu.items[0].message.payload.Acid": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[10].message.payload.Radiant": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[11].message.payload.Slashing": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[12].message.payload.Thunder": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[1].message.payload.Bludgeoning": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[2].message.payload.Cold": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[3].message.payload.Fire": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[4].message.payload.Force": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[5].message.payload.Lightning": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[6].message.payload.Necrotic": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[7].message.payload.Piercing": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[8].message.payload.Poison": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "meta.contextMenu.items[9].message.payload.Psychic": {
+                        "binding": {
+                          "config": {
+                            "path": "../HPBucket.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "#FF0000",
+                          "path": "material/local_fire_department"
+                        }
+                      },
+                      "primary": false,
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tsystem.perspective.sendMessage(\"heal\", {\"value\":self.getSibling(\"HPBucket\").custom.value}, \"session\")"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      },
+                      "dom": {
+                        "onMouseEnter": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d 1\n\tself.getSibling(\"HPBucket\").meta.visible \u003d True\n\tself.getSibling(\"HPBucket\").custom.type \u003d \"plus\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onMouseLeave": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").meta.visible \u003d False"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onWheel": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d max(\n\t\t0, self.getSibling(\"HPBucket\").custom.value - event.deltaY/100\n\t)\n\tself.getSibling(\"HPBucket\").custom.type \u003d \"plus\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "contextMenu": {
+                        "enabled": true,
+                        "items": [
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "session",
+                              "type": "heal"
+                            },
+                            "method": {
+                              "name": "healToBloodied",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Heal to Bloodied",
+                            "type": "message"
+                          },
+                          {
+                            "children": [],
+                            "icon": {
+                              "color": "",
+                              "path": "",
+                              "style": {}
+                            },
+                            "link": {
+                              "target": "self",
+                              "url": ""
+                            },
+                            "message": {
+                              "payload": {},
+                              "scope": "session",
+                              "type": "heal"
+                            },
+                            "method": {
+                              "name": "",
+                              "params": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Heal to Full",
+                            "type": "message"
+                          }
+                        ]
+                      },
+                      "name": "Heal"
+                    },
+                    "position": {
+                      "height": 34,
+                      "width": 34,
+                      "x": 70.5,
+                      "y": 65
+                    },
+                    "propConfig": {
+                      "meta.contextMenu.items[0].message.payload.value": {
+                        "binding": {
+                          "config": {
+                            "expression": "toInt(max(0, {parent.custom.value}/2 - {session.custom.data.instants.currentHP})) "
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "meta.contextMenu.items[1].message.payload.value": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "#FF0000",
+                          "path": "material/favorite_border"
+                        }
+                      },
+                      "primary": false,
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "events": {
+                      "component": {
+                        "onActionPerformed": {
+                          "config": {
+                            "script": "\tself.session.custom.data.instants.tempHP \u003d max(self.session.custom.data.instants.tempHP, self.getSibling(\"HPBucket\").custom.value)\n\tself.parent.getChild(\"Shield\").getChild(\"Value\").props.text \u003d self.session.custom.data.instants.tempHP"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      },
+                      "dom": {
+                        "onMouseEnter": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d 1\n\tself.getSibling(\"HPBucket\").meta.visible \u003d True\n\tself.getSibling(\"HPBucket\").custom.type \u003d \"shield\""
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onMouseLeave": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").meta.visible \u003d False"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        },
+                        "onWheel": {
+                          "config": {
+                            "script": "\tself.getSibling(\"HPBucket\").custom.value \u003d max(\n\t\t0, self.getSibling(\"HPBucket\").custom.value - event.deltaY/100\n\t)"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Temp"
+                    },
+                    "position": {
+                      "height": 34,
+                      "width": 34,
+                      "x": 109.5,
+                      "y": 65
+                    },
+                    "props": {
+                      "image": {
+                        "icon": {
+                          "color": "#5FCEF3",
+                          "path": "material/local_police"
+                        }
+                      },
+                      "primary": false,
+                      "text": ""
+                    },
+                    "type": "ia.input.button"
+                  },
+                  {
+                    "meta": {
+                      "name": "CurrentHP"
+                    },
+                    "position": {
+                      "height": 43,
+                      "width": 72,
+                      "x": 11.1875,
+                      "y": 19.7906
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "session.custom.data.instants.currentHP"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "fontSize": 30,
+                        "fontWeight": "bold",
+                        "textAlign": "right"
+                      },
+                      "textStyle": {
+                        "fontSize": 30
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "custom": {
+                      "type": "minus",
+                      "value": 1
+                    },
+                    "meta": {
+                      "name": "HPBucket"
+                    },
+                    "position": {
+                      "height": 32,
+                      "width": 28,
+                      "x": -0.18999999999999995,
+                      "y": 66
+                    },
+                    "propConfig": {
+                      "meta.visible": {
+                        "binding": {
+                          "config": {
+                            "expression": "{this.custom.value}\u003e0"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "this.custom.value"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "switch({this.custom.type},\"plus\",\"minus\",\"+\" + {value},\"-\" + {value},{value})",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontSize": 14,
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Value"
+                        },
+                        "position": {
+                          "basis": "50px"
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "session.custom.data.instants.tempHP"
+                              },
+                              "type": "property"
+                            },
+                            "onChange": {
+                              "enabled": null,
+                              "script": "\n\tif currentValue.value \u003e 0:\n\t\tself.parent.parent.getChild(\"CurrentHP\").props.textStyle.fontSize \u003d 18\n\t\tself.parent.parent.getChild(\"CurrentHP\").props.alignVertical \u003d \"bottom\"\n\t\tself.parent.meta.visible \u003d True\n\t\n\telse:\n\t\tself.parent.parent.getChild(\"CurrentHP\").props.textStyle.fontSize \u003d 30\n\t\tself.parent.parent.getChild(\"CurrentHP\").props.alignVertical \u003d \"center\"\n\t\tself.parent.meta.visible \u003d False"
+                            }
+                          }
+                        },
+                        "props": {
+                          "textStyle": {
+                            "fontSize": 18,
+                            "textAlign": "right"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Icon"
+                        },
+                        "position": {
+                          "basis": "20px"
+                        },
+                        "props": {
+                          "path": "material/local_police"
+                        },
+                        "type": "ia.display.icon"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Shield",
+                      "visible": false
+                    },
+                    "position": {
+                      "height": 28,
+                      "width": 62,
+                      "x": 24.4,
+                      "y": 19.8
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "HPBar"
+                    },
+                    "position": {
+                      "height": 11,
+                      "rotate": {
+                        "angle": -90
+                      },
+                      "width": 90,
+                      "x": 117,
+                      "y": 47
+                    },
+                    "propConfig": {
+                      "props.bar.color": {
+                        "binding": {
+                          "config": {
+                            "path": "session.custom.data.instants.currentHP"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if({value} \u003c\u003d {parent.custom.value}/2,\"#FF0000\",\"#FF8A8A\")",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.max": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.value"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "path": "../CurrentHP.props.text"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "bar": {},
+                      "track": {
+                        "color": "#C0C0C000"
+                      }
+                    },
+                    "type": "ia.display.progress"
+                  }
+                ],
+                "meta": {
+                  "name": "HitPoints"
+                },
+                "position": {
+                  "basis": "186px"
+                },
+                "propConfig": {
+                  "custom.bucket": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.labeled.maxHP"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "custom.precedents": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "custom.value": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderWidth": 2,
+                    "overflow": "hidden"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "refresh",
+                      "pageScope": false,
+                      "script": "    if payload in self.custom.precedents:\n        selfs.refreshBinding(\"custom.value\")\n        # system.perspective.print(\"{} heard {}\".format(self.view.params.id, payload))",
+                      "sessionScope": true,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "damage",
+                      "pageScope": false,
+                      "script": "\t\u0027\u0027\u0027\n\tExample payload: {\"piercing\":5,\"cold\":4}\n\t\u0027\u0027\u0027\n\tsystem.perspective.print(payload)\n\t\n\t# initialize variables\n\tdamage \u003d 0\n\t\n\t# loop through each damage type\n\tfor damageType, value in payload.items():\n\t\t\n\t\t# apply resistance, vulnerability, immunity\n#\t\tdamage +\u003d int(value * self.session.custom.damage[damageType])\n\t\tdamage +\u003d value\n\t\n\t# remove temp hp first\n\tif self.session.custom.data.instants.tempHP \u003e 0:\n\t\t\n\t\t# still have temp hp left\n\t\tif self.session.custom.data.instants.tempHP \u003e\u003d damage:\n\t\t\tself.session.custom.data.instants.tempHP -\u003d damage\n\t\t\n\t\t# use all the temp hp\n\t\telse:\n\t\t\tself.session.custom.data.instants.currentHP \u003d max(0, self.session.custom.data.instants.currentHP - damage + self.session.custom.data.instants.tempHP)\n\t\t\tself.session.custom.data.instants.tempHP \u003d 0\n\t\n\t# no temp hp\n\telse:\n\t\tself.session.custom.data.instants.currentHP \u003d max(0, self.session.custom.data.instants.currentHP - damage)\n\t",
+                      "sessionScope": true,
+                      "viewScope": false
+                    },
+                    {
+                      "messageType": "heal",
+                      "pageScope": false,
+                      "script": "\t\"\"\"\n\tExample payload: {\"value\":12}\n\t\"\"\"\n\t\n\tself.session.custom.data.instants.currentHP \u003d min(\n\t\tself.session.custom.data.instants.currentHP + payload[\"value\"], \n\t\tself.custom.value\n\t)",
+                      "sessionScope": true,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.container.coord"
+              }
+            ],
+            "meta": {
+              "name": "TopStats"
+            },
+            "position": {
+              "height": 108,
+              "width": 636,
+              "x": 609,
+              "y": 24.2
+            },
+            "props": {
+              "alignContent": "space-between",
+              "justify": "space-between"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "ToolsCaption"
+            },
+            "position": {
+              "height": 19,
+              "width": 175,
+              "x": 183,
+              "y": 608.7994610900879
+            },
+            "props": {
+              "text": "Tools",
+              "textStyle": {
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tlevel \u003d sum([1 for i in value if i \u003d\u003d \"proficiencyBonus\"])\n\t\n\tif level \u003d\u003d 0:\n\t\treturn \"material/radio_button_unchecked\"\n\tif level \u003d\u003d 1:\n\t\treturn \"material/radio_button_checked\"\n\telse:\n\t\treturn \"material/offline_bolt\"",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "45px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.bucket"
+                      },
+                      "transforms": [
+                        {
+                          "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+                          "type": "script"
+                        },
+                        {
+                          "expression": "if({value}\u003e\u003d0,\"+\"+{value},{value})",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "SelectedTool"
+                },
+                "position": {
+                  "basis": "256px"
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.data.tools"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn [{\"value\":key,\"label\":stuff[\"displayName\"]} for key, stuff in  value.items()]",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "dropdownOptionStyle": {
+                    "fontSize": 10
+                  },
+                  "search": {
+                    "enabled": false
+                  },
+                  "style": {
+                    "fontSize": 9,
+                    "textAlign": "left"
+                  },
+                  "value": "thievesTools"
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "custom": {
+              "precedents": [],
+              "value": "value"
+            },
+            "meta": {
+              "name": "Tools"
+            },
+            "position": {
+              "height": 26,
+              "width": 175,
+              "x": 183.5,
+              "y": 630.8994610900879
+            },
+            "propConfig": {
+              "custom.bucket": {
+                "binding": {
+                  "config": {
+                    "expression": "property(\"session.custom.data.tools.\" + {./SelectedTool.props.value} + \".bucket\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 1
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "ActiveEffects"
+            },
+            "position": {
+              "height": 259,
+              "width": 182,
+              "x": 1064,
+              "y": 167.5
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.data.lastingEffects"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/StatusEffect",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 2,
+                "overflowY": "auto"
+              }
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "meta": {
+              "name": "PassiveSkills"
+            },
+            "position": {
+              "height": 75,
+              "width": 150,
+              "x": 20,
+              "y": 340.2
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.data.passiveSkills"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Templates/PassiveSkill",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": 2
+              },
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -75,
+      "y": 9.5
+    },
+    "props": {
+      "breakpoint": 706
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "Get",
+          "params": [
+            "path"
+          ],
+          "script": "\n\tsteps \u003d path.split(\".\")\n\tnode \u003d self.session.custom\n\t\n\tfor step in steps:\n\t\tnode \u003d node[step]\n\t\t\n\treturn node"
+        },
+        {
+          "name": "Set",
+          "params": [
+            "path",
+            "value"
+          ],
+          "script": "\n\tnode \u003d self.session.custom\n\t\n\tsteps \u003d path.split(\".\")\n\tlast \u003d steps.pop()\n\t\n\tfor step in steps:\n\t\tnode \u003d node[step]\n\t\t\n\tnode[last] \u003d value"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "damage",
+          "pageScope": false,
+          "script": "\t\u0027\u0027\u0027\n\tExample payload: {\"piercing\":5,\"cold\":4}\n\t\u0027\u0027\u0027\n\t# initialize variables\n\tdamage \u003d 0\n\t\n\t# loop through each damage type\n\tfor damageType, value in payload.items():\n\t\t\n\t\t# apply resistance, vulnerability, immunity\n\t\tdamage +\u003d int(value * self.session.custom.damage[damageType])\n\t\n\t# remove temp hp first\n\tif self.session.custom.data.instants.tempHP \u003e 0:\n\t\t\n\t\t# still have temp hp left\n\t\tif self.session.custom.data.instants.tempHP \u003e\u003d damage:\n\t\t\tself.session.custom.data.instants.tempHP -\u003d damage\n\t\t\n\t\t# use all the temp hp\n\t\telse:\n\t\t\tself.session.custom.data.instants.currentHP \u003d max(0, self.session.custom.data.instants.currentHP - damage + self.session.custom.data.instants.tempHP)\n\t\t\tself.session.custom.data.instants.tempHP \u003d 0\n\t\n\t# no temp hp\n\telse:\n\t\tself.session.custom.data.instants.currentHP \u003d max(0, self.session.custom.data.instants.currentHP - damage)\n\t",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "heal",
+          "pageScope": false,
+          "script": "\t\"\"\"\n\tExample payload: {\"value\":12}\n\t\"\"\"\n\t\n\tself.session.custom.hp.current \u003d min(\n\t\tself.session.custom.hp.current + payload[\"value\"], \n\t\tself.session.custom.hp.max.value\n\t)",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "write",
+          "pageScope": false,
+          "script": "\t\"\"\"\n\texample payload:\n\t{\n\t\t\"mode\":\"add\",\n\t\t\"path\":,\"armorClass.bonus\",\n\t\t\"value\":2\n\t}\n\t\"\"\"\n\n\t# read payload\n\tmode \u003d payload[\"mode\"]\n\tpath \u003d payload[\"path\"]\n\tvalue \u003d payload[\"value\"]\n\t\n\tif mode \u003d\u003d \"setRaw\":\n\t\tself.Set(path, value)\n\t\n\telif mode \u003d\u003d \"setRef\":\n\t\tself.Set(path, self.Get(value))\n\t\n\telif mode \u003d\u003d \"addRaw\":\n\t\tself.Set(path, self.Get(path) + value)\n\t\n\telif mode \u003d\u003d \"addRef\":\n\t\tself.Set(path, self.Get(path) + self.Get(value))\n\t\n\telif mode \u003d\u003d \"minusRaw\":\n\t\tself.Set(path, self.Get(path) - value)\n\t\n\telif mode \u003d\u003d \"minusRef\":\n\t\tself.Set(path, self.Get(path) - self.Get(value))\n\t\t\n\tif False: # debug\n\t\tsystem.perspective.print(\"Set {} to {}\".format(path, value))\n\t\t",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.breakpt"
+  }
+}

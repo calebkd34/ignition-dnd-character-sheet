@@ -1,0 +1,199 @@
+{
+  "custom": {
+    "current": 4,
+    "maxPrecedents": [
+      "proficiencyBonus"
+    ],
+    "maxValue": 4
+  },
+  "params": {
+    "color": "#AAAAFF",
+    "maxBucket": [
+      "proficiencyBonus"
+    ],
+    "path": "spellSlots.firstLevel"
+  },
+  "propConfig": {
+    "custom.current": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.data.\" + {view.params.path} + \".current\")"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tp \u003d self.params.path.split(\".\")\n\tself.session.custom.data[p[0]][p[1]].current \u003d currentValue.value"
+      },
+      "persistent": true
+    },
+    "custom.maxPrecedents": {
+      "binding": {
+        "config": {
+          "path": "view.params.maxBucket"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unfiltered \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            unfiltered.append(entry[\"when\"])\n            if isinstance(entry[\"what\"], list):\n                for SubEntry in entry[\"what\"]:\n                    unfiltered.append(SubEntry)\n            else:\n                unfiltered.append(entry[\"what\"])\n        else:\n            unfiltered.append(entry)\n\n    return [i for i in unfiltered if isinstance(i, str)]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.maxValue": {
+      "binding": {
+        "config": {
+          "path": "view.params.maxBucket"
+        },
+        "transforms": [
+          {
+            "code": "    bucket \u003d system.util.jsonDecode(system.util.jsonEncode(value))\n    unprocessed \u003d []\n\n    # extract entries\n    for entry in bucket:\n        if isinstance(entry, dict):\n            if self.session.custom.when[entry[\"when\"]]:\n                if isinstance(entry[\"what\"], list):\n                    for SubEntry in entry[\"what\"]:\n                        unprocessed.append(SubEntry)\n                else:\n                    unprocessed.append(entry[\"what\"])\n        else:\n            unprocessed.append(entry)\n\n    return sum([self.session.custom.what[i] if isinstance(i, str) else i for i in unprocessed])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.maxBucket": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.path": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Current"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.current}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.textStyle.fontSize": {
+            "binding": {
+              "config": {
+                "expression": "if({this.props.text}\u003c10,15,if({this.props.text}\u003c100,12,10))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif event.shiftKey:\n\t\tself.view.custom.current \u003d min(self.view.custom.maxValue, self.view.custom.current + 1)\n\telse:\n\t\tself.view.custom.current \u003d max(0, self.view.custom.current - 1)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Gauge"
+        },
+        "position": {
+          "height": 66,
+          "width": 70,
+          "x": -20,
+          "y": -19
+        },
+        "propConfig": {
+          "props.arc.color": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          },
+          "props.maxValue": {
+            "binding": {
+              "config": {
+                "path": "view.custom.maxValue"
+              },
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "path": "view.custom.current"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "animate": true,
+          "arc": {
+            "width": 5
+          },
+          "arcBackground": {
+            "color": "#AAAAAA"
+          },
+          "endAngle": 270,
+          "label": {
+            "maxDecimal": 0,
+            "offsetY": 7,
+            "size": 10,
+            "visible": false
+          },
+          "startAngle": -90,
+          "style": {
+            "cursor": "pointer",
+            "overflow": "visible",
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0
+          }
+        },
+        "type": "ia.chart.simple-gauge"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

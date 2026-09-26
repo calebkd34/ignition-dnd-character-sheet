@@ -1,0 +1,155 @@
+{
+  "custom": {
+    "dnd": {
+      "abilityScore": {
+        "cha": -1,
+        "charisma": 8,
+        "con": 16,
+        "constitution": 16,
+        "dex": 2,
+        "dexterity": 14,
+        "int": 0,
+        "intelligence": 10,
+        "str": 4,
+        "strength": 18,
+        "wis": 1,
+        "wisdom": 12
+      },
+      "armorClass": 12,
+      "background": "Soldier",
+      "class": {
+        "primary": "Fighter",
+        "subclass": "Battle Master"
+      },
+      "features": {
+        "instant": {
+          "heal": {
+            "handle": "heal",
+            "payload": 4
+          }
+        },
+        "toggled": {
+          "chainMail": {
+            "antipayload": -16,
+            "cost": 0,
+            "description": "is chain mail",
+            "handle": "armorClass",
+            "name": "Chain Mail",
+            "payload": 16,
+            "resource": ""
+          },
+          "shield": {
+            "antipayload": -2,
+            "cost": 0,
+            "description": "is a shield",
+            "handle": "armorClass",
+            "name": "Shield",
+            "payload": 2,
+            "resource": ""
+          }
+        }
+      },
+      "hp": {
+        "current": 50,
+        "max": 50,
+        "temp": 0
+      },
+      "inspiration": "False",
+      "level": 3,
+      "name": "Dude",
+      "playerName": "Caleb",
+      "resources": {
+        "battleMasterDice": {
+          "max": 4,
+          "value": 4
+        },
+        "shield": {
+          "max": 4,
+          "value": 4
+        }
+      },
+      "skills": {
+        "acrobatics": 0,
+        "animalHandling": 0,
+        "arcana": 0,
+        "athletics": 1,
+        "deception": 0,
+        "history": 0,
+        "insight": 0,
+        "intimidation": 1,
+        "investigation": 0,
+        "medicine": 0,
+        "nature": 0,
+        "perception": 1,
+        "performance": 0,
+        "persuasion": 0,
+        "religion": 0,
+        "sleightOfHand": 0,
+        "stealth": 1,
+        "survival": 0
+      },
+      "species": "Human"
+    },
+    "print": 5,
+    "test": true
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 831,
+      "width": 1519
+    }
+  },
+  "root": {
+    "custom": {
+      "testcode": "value",
+      "value": 1
+    },
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -8,
+      "y": 0
+    },
+    "props": {
+      "style": {
+        "boxShadow": false
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "README",
+          "params": [],
+          "script": "\t# implement your method here\n\t\n\"\"\"\nFeatures:\n\nProbably have a whole object json used by flex repeaters. Then, a mangage message handler (smart function that can write \nand add anything) will take the whole object and use its information to manipulate base and bonus of various components.\nMake sure it can do thngs like add DEX to a modifier.\n\nAlso try to make the view embedded in the flex repeater uses visibility settings to show both toggle and instant features.\n\nWeapons:\nCould just have crazy json with each damage type having each die size plus a bonus, which compiles to a value.\nUse the same functionality as above to adjust dice numbers\n\nSpells:\nMake sure to use the tooltip, maybe even popup view hovering.\n\nTiming:\nEffects can have a duration effect that ticks down when you hit next_turn button, etc...\n\t\n\"\"\""
+        },
+        {
+          "name": "indirect",
+          "params": [
+            "path"
+          ],
+          "script": "\t\n\tsystem.perspective.print(path)\n\tif not isinstance(path, str) or (isinstance(path, str) and \".\" not in path):\n\t\treturn path\n\t\t\n\tnode \u003d self.session.custom\n\t\n\tsteps \u003d payload[0].split(\".\")\n\tend \u003d steps.pop()\n\t\n\tfor step in steps:\n\t\tnode \u003d node[step]\n\t\t\n\tnode[end] \u003d payload[1]\n\t\n\treturn node"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "load",
+          "pageScope": true,
+          "script": "\t# load from the json\n\t",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "write",
+          "pageScope": true,
+          "script": "\n\tnode \u003d self.indirect(payload[\"path\"])\n\t\n\tif payload[\"mode\"] \u003d\u003d \"set\":\n\t\t\n\t\tnode \u003d self.indirect(payload[\"value\"])\n\t\n\telse:\n\t\t\n\t\tnode +\u003d self.indirect(payload[\"value\"])\n\t\treturn",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

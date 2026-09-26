@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": true,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "Sample_SQLite_Database",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "1ddb96b0511641882bb7e054e29a29393075a2cbf22dd6912c0bae4da73072df",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "calebkd",
+      "timestamp": "2026-05-22T22:42:25Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "n",
+        "sqlType": 2
+      }
+    ]
+  }
+}
